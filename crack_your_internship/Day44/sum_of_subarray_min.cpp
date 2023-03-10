@@ -1,3 +1,7 @@
+#include <bits/stdc++.h>
+using namespace std;
+/*
+
 class Solution {
 public:
   int sumSubarrayMins(vector<int>& A) {
@@ -31,3 +35,60 @@ public:
     return ans;
   }
 };
+
+*/
+
+class Solution {
+  public:
+
+  int sumSubarrayMins(vector<int> &arr)
+  {
+      stack <pair<int,int>> stk_p,stk_n;
+      int n = arr.size();
+      vector<int> left(n),right(n);
+
+      // initialize 
+      for(int i=0;i<n;i++)
+      {
+        left[i] = i+1;
+      }
+
+      for(int i=0;i<n;i++)
+      {
+        right[i] = n-i;
+      }
+
+      //for previous less 
+      for(int i=0;i<n;i++)
+      {
+        while(!stk_p.empty() && stk_p.top().first > arr[i])
+        {
+          stk_p.pop();
+        }
+
+        left[i] = (stk_p.empty()) ?  i+1 : i - stk_n.top().second;
+        // pushing into the next stack a pair
+        stk_p.push({arr[i],i});
+
+        // for next greater 
+
+        while(!stk_n.empty() && stk_n.top().first > arr[i])
+        { 
+          auto x = stk_n.top();
+          right[x.second] = i - x.second; 
+          stk_n.pop();
+        } 
+        stk_n.push({arr[i],i});
+      }
+
+      int ans = 0,mod = 1e9+7;
+      for(int i=0;i<n;i++)
+      {
+        ans += (arr[i]*left[i]*right[i])%mod;
+      }
+      return ans;
+  }
+};
+
+
+

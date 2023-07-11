@@ -1,0 +1,7 @@
+Notes to Self :-
+All possible patters from Subsequence
+
+1. Print All the Subsequence
+2. Print all Sq which sums to K
+3. Print only 1st Sq which sums to K
+4. Print the count of Sq which sums to K

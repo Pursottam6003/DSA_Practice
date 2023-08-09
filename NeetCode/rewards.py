@@ -5,7 +5,7 @@ import time
 
 # List of search queries to choose from
 i =0
-for i in range(25) :
+for i in range(10) :
     queries = ['life', 'money', 'knowledge', 'health', 'love', 'happiness', 'success', 'wisdom', 'friendship', 'opportunity',
          'peace', 'family', 'career', 'travel', 'education', 'talent', 'beauty', 'creativity', 'passion', 'faith',
          'adventure', 'courage', 'perseverance', 'purpose', 'spirituality', 'innovation', 'imagination', 'respect',
